@@ -12,16 +12,17 @@ export function Restaurant({ newRestaurantData }) {
       <div className="card">
         <img src={newRestaurantData.restaurant_thumb} className="card-img-top" alt={newRestaurantData.restaurant_name} />
         <div className="card-body">
-          <h5>{newRestaurantData.restaurant_name} 🍔</h5>
+          <h5 className="res_name">{newRestaurantData.restaurant_name}</h5>
 
           {/* Toggle button for address */}
-          <button onClick={toggleAddress}>Address</button>
+          <button onClick={toggleAddress} className='btn-address'>Address</button>
           {showAddress && <p>📍 {newRestaurantData.address}</p>}
 
-          <p>⭐ {newRestaurantData.average_rating} rating</p>
+          <p className='p-rating'>⭐ {newRestaurantData.average_rating} rating</p>
+
           <div className="card-footer">
-            <p>💰 ₹{newRestaurantData.cost}/-</p>
-            <button>➕ Add to cart</button>
+            <p>₹{newRestaurantData.cost}/-</p>
+            <button className='btn-add-cart'>Add to cart</button>
           </div>
         </div>
       </div>
