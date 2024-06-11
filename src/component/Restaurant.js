@@ -15,6 +15,8 @@ export function Restaurant({ newRestaurantData }) {
         <img src={newRestaurantData.restaurant_thumb} className="card-img-top" alt={newRestaurantData.restaurant_name} />
         <div style={{ padding: '1rem' }}>
           <h5>{newRestaurantData.restaurant_name} 🍔</h5>
+
+
           {/* Toggle button code */}
           <button onClick={toggle}>Address</button>
           {address ? <p>📍 {newRestaurantData.address} </p> : <p></p>}
