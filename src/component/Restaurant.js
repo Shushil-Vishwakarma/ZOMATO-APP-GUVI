@@ -1,28 +1,25 @@
 import React, { useState } from 'react';
 
 export function Restaurant({ newRestaurantData }) {
+  const [showAddress, setShowAddress] = useState(false);
 
-  const [address, setAddress] = useState(false);
-
-  const toggle = () => {
-    setAddress(prev => !prev)
+  const toggleAddress = () => {
+    setShowAddress(prev => !prev);
   }
 
-
   return (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <div style={{ width: '18rem', margin: '10px' }}>
+    <div className='main-container'>
+      <div className="card">
         <img src={newRestaurantData.restaurant_thumb} className="card-img-top" alt={newRestaurantData.restaurant_name} />
-        <div style={{ padding: '1rem' }}>
+        <div className="card-body">
           <h5>{newRestaurantData.restaurant_name} 🍔</h5>
 
-
-          {/* Toggle button code */}
-          <button onClick={toggle}>Address</button>
-          {address ? <p>📍 {newRestaurantData.address} </p> : <p></p>}
+          {/* Toggle button for address */}
+          <button onClick={toggleAddress}>Address</button>
+          {showAddress && <p>📍 {newRestaurantData.address}</p>}
 
           <p>⭐ {newRestaurantData.average_rating} rating</p>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div className="card-footer">
             <p>💰 ₹{newRestaurantData.cost}/-</p>
             <button>➕ Add to cart</button>
           </div>
